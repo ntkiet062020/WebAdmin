@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MPBlank.master.cs" Inherits="TKS_Thuc_Tap_Web.WebAdmin.MPBlank" %>
+
+<%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>TKSolution - Core System</title>
+    <!-- Favicon
+        ============================================== -->
+    <link rel="shortcut icon" href="media/img/favicon.png">
+    <!-- Mobile Specific
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS Files
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" href="/webadmin/media/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/webadmin/media/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/webadmin/media/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/webadmin/media/css/responsive.css">
+
+    <!--[if lt IE 9]>
+	    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="media/js/modernizr.custom.js"></script>
+    
+    <script>
+        function ConfirmDelete()
+        {
+            return window.confirm("Bạn chắc chắn mình thật sự muốn xóa ?");
+        }
+    </script>
+    
+    <script>
+        function openWin(url, w, h) 
+        {      
+            var left = (screen.width/2)-(w/2);
+            var top = (screen.height/2)-(h/2);
+            var new_left = window.screenX + (((window.outerWidth/2) - (w/2)));
+            var new_top = window.screenY + (((window.outerHeight/2) - (w/2)));
+            window.open(url, '', 'width='+w+', height='+h+', top='+new_top+', left='+new_left+',toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, copyhistory=no');
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <content class="row">
+            <div class="class_Header_Blank_Div">
+                <asp:Literal ID="litTitle" runat="server"></asp:Literal>
+            </div>
+            <br /><br />
+            <div class="content-content">
+                <div class="col-md-12" style="padding-right: 0px">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </content>
+        
+        <script src="/webadmin/media/js/jquery.min.js"></script>
+        <script src="/webadmin/media/js/bootstrap.min.js"></script>
+        <script src="/webadmin/media/js/twitter-bootstrap-hover-dropdown.min.js"></script>
+        <script src="/webadmin/media/js/scripts.js"></script>
+    
+        <dx:ASPxLoadingPanel ID="LoadingPanel" runat="server" Modal="True" ClientInstanceName="LoadingPanel" >
+        </dx:ASPxLoadingPanel>
+        <dx:ASPxCallback ID="ASPxCallback1" runat="server" ClientInstanceName="Callback">
+        </dx:ASPxCallback>
+    </form>
+    
+</body>
+</html>

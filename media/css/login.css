@@ -1,0 +1,229 @@
+html{
+height: 100%;
+}
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	color: #888;
+    font-size: 13px;
+    font-weight: 500;
+	-webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+	overflow-x: hidden;  
+	overflow-y: scroll;
+}
+body,
+li,
+address {
+    line-height: 22px
+}
+input,
+button,
+select,
+textarea {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+}
+p {
+    margin: 0 0 15px
+}
+a {
+    color: #222;
+    -webkit-transition:all 0.3s ease;
+	-moz-transition:all 0.3s ease;
+	-o-transition:all 0.3s ease;
+	transition:all 0.3s ease;
+}
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+body{
+	background: url(../img/backg_full.jpg) center bottom;
+	    background-size: cover;
+}
+
+#layout-content{
+	text-align: center;
+}
+
+.group-box-login{
+    background: rgb(0, 147, 247);
+    display: inline-block;
+    padding: 50px 42px;
+    min-height: 466px;
+    position: relative;
+}
+
+.group-box-login .title{
+	color: #E0AE1C;
+	font-size: 18px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 39px;
+}
+
+.group-box-login .title img{
+	width: 66%;
+	margin-bottom: 8px;
+}
+
+.button-dangnhap{
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	margin-top: 15px;
+}
+
+.background-Coty{
+	background: url(../img/backg_Cotyl.jpg) -23px 0 rgb(0, 0, 0);
+	width: 298px;
+	min-height: 466px;
+	background-size: inherit;
+	background-repeat: no-repeat;
+	box-shadow: 7px 0px 36px -13px #000;
+	z-index: 1;
+	position: relative;
+}
+
+.button-dangnhap .btn-default{
+	background-color: #089912; 
+	color: #fff;
+}
+
+.footer{
+    padding: 6px 0;
+    background: #FFB100;
+    vertical-align: bottom;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+	
+}
+
+.footer h5{
+    margin: 0;
+    padding: 6px 0;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.VD {
+    overflow: hidden;
+    border: solid 2px #fff;
+}
+
+
+#particles {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.intro {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  padding: 0 20px;
+  width: 100%;
+  text-align: center;
+}
+
+/*----------- .Table-Login ---------*/
+ .Group-text
+    {
+    	font-family:Tahoma;
+        font-size: 11px;
+        width: 90%;
+        text-align: center;
+        text-decoration: inherit;
+        border-bottom: dotted 1px #4F93E3;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        list-style: none;
+        margin-bottom: 0;
+        display: inline-block;
+        color: Blue !important;
+    }
+
+
+ .alert.default {
+	background: #EBEBEB;
+	border-color: #C7C7C7;
+}
+
+.alert.error {
+    background: #E4C8C8;
+    border-color: #CFA9A9;
+}
+
+.rounded {
+    border-radius: 3px !important;
+}
+.alert {
+    position: relative;
+    padding: 15px 20px;
+    background: #CBE2C1;
+    border: solid thin #B2CFA6;
+    margin: 0 0 10px 0;
+    color: rgba(0,0,0,0.6);
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.white:not(select):not(input):not(.list):not(.progress):not(.progress-circle) {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+div.panel.white {
+    border-color: #DADADA;
+    background: #fff !important;
+}
+div.panel.rounded {
+    border-radius: 3px;
+}
+div.panel {
+    padding: 15px;
+    background: #F4F4F4 !important;
+    border: solid thin rgba(0,0,0,0.13);
+    border-radius: 0;
+}
+.light-shadow {
+    box-shadow: 0 1px 10px rgba(0,0,0,0.07);
+}
+.rounded {
+    border-radius: 3px !important;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+* {
+    outline: none;
+}
+
+.line-sep {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+}
+
+.block {
+	display: block !important;
+}
+
+.mg-bottom-10 { margin-bottom: 10px !important; }
+
