@@ -1,0 +1,160 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="uc1002_DM_Thanh_Vien.ascx.cs" Inherits="TKS_Thuc_Tap_Web.WebAdmin.Admin.UserControl.uc1002_DM_Thanh_Vien" %>
+<%@ Register assembly="DevExpress.Web.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+<div class="row">
+	<div class="col-md-12">
+        <span style="font-size:11px; font-family: Tahoma">
+            - Khai báo danh mục thành viên sử dụng hệ thống.<br />
+            - Lưu ý: <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:Red">+ Mã đăng nhập là duy nhất.</span> <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:Red">+ Default URL nếu để trống thì sẽ khi người dùng đăng nhập vào sẽ được chuyển 
+            vào trang dashboard danh cho nhân viên, chi nên nhập trường này cho các quản lý, BOM khi cần xem một số dashboard đặt biệt.</span> <br />
+            - Vui lòng nhập đầy đủ email để dùng trong trường hợp thông báo tự động bằng email.<br />
+        </span>
+    </div>
+</div>
+
+<div class="row-spacer_20"></div>
+
+<div class="row">
+	<div class="col-md-12">
+        <dx:ASPxGridView ID="grdData" runat="server" 
+            DataSourceID="sqlData" 
+            Width="100%" 
+            AutoGenerateColumns="False"
+            KeyFieldName="Auto_ID" 
+            Font-Names="Tahoma" Font-Size="11px" 
+            OnRowInserting="grdData_RowInserting"
+            OnRowUpdating="grdData_RowUpdating"
+            OnStartRowEditing="grdData_StartRowEditing" 
+            onrowvalidating="grdData_RowValidating" 
+            oncelleditorinitialize="grdData_CellEditorInitialize" 
+            Theme="Office2010Blue" EnableTheming="True" ClientInstanceName="grdData" >   
+            <Columns>
+                <dx:GridViewCommandColumn ShowSelectCheckbox="True" VisibleIndex="0" Width="40px">
+                    <HeaderTemplate>
+                        <input type="checkbox" onclick="grdData.SelectAllRowsOnPage(this.checked);" style="vertical-align: middle;"
+                            title="Select/Unselect all rows on the page"></input>
+                    </HeaderTemplate>
+                </dx:GridViewCommandColumn>
+                <dx:GridViewDataTextColumn Caption="MSHT" FieldName="Auto_ID" VisibleIndex="1" 
+                    Width="60px" >
+                    <PropertiesTextEdit DisplayFormatString="g">
+                    </PropertiesTextEdit>
+                    <EditFormSettings Visible="False" />
+                    <CellStyle HorizontalAlign="Center">
+                    </CellStyle>
+                </dx:GridViewDataTextColumn>
+            
+                <dx:GridViewDataTextColumn Caption="Mã Đăng Nhập"  FieldName="Ma_Dang_Nhap" 
+                    VisibleIndex="2" Name="colUserName" Width="100px">
+                    <EditFormSettings Caption="Mã Đăng Nhập *" Visible="True" />
+                </dx:GridViewDataTextColumn>
+            
+                <dx:GridViewDataTextColumn Caption="Password" FieldName="Password" 
+                    Visible="False" VisibleIndex="3">            
+                    <EditFormSettings Visible="True" />  
+                    <EditFormSettings Caption="Password *" Visible="True" />          
+                </dx:GridViewDataTextColumn>
+            
+                <dx:GridViewDataTextColumn Caption="Họ Lót" FieldName="Ho_Lot" 
+                    VisibleIndex="4" Width="140px">
+                </dx:GridViewDataTextColumn>
+            
+                <dx:GridViewDataTextColumn Caption="Tên" FieldName="Ten" 
+                    VisibleIndex="5" Width="140px">
+                </dx:GridViewDataTextColumn>
+            
+                <dx:GridViewDataTextColumn Caption="Điện Thoại" FieldName="Dien_Thoai" 
+                    VisibleIndex="6" Width="100px">
+                </dx:GridViewDataTextColumn>
+            
+                <dx:GridViewDataTextColumn Caption="Email" FieldName="Email" 
+                    VisibleIndex="7">
+                </dx:GridViewDataTextColumn>
+
+                <dx:GridViewCommandColumn VisibleIndex="9" Width="40px" ShowNewButton="True">
+                </dx:GridViewCommandColumn>
+            
+                <dx:GridViewCommandColumn VisibleIndex="10" Width="40px" ShowEditButton="True">
+                </dx:GridViewCommandColumn>
+            
+                <dx:GridViewCommandColumn VisibleIndex="11" Width="40px" ShowDeleteButton="True">
+                </dx:GridViewCommandColumn>
+            
+                <dx:GridViewDataTextColumn Caption="Default URL" FieldName="Default_URL" 
+                    VisibleIndex="8" Width="200px" Visible="False">
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataTextColumn>
+            
+            </Columns>
+        </dx:ASPxGridView>
+                
+        <table cellpadding="0" cellspacing="0" width="100%" style="margin-top:15px">
+            <tr>
+                <td align="left">
+                    <dx:ASPxButton ID="btnXoa_Select" runat="server" Text="Xóa Chọn" 
+                        onclick="btnXoa_Select_Click" Theme="Office2010Blue">
+                    </dx:ASPxButton>
+                </td>
+                
+                <td width="130px" align="right">
+                    <dx:ASPxButton ID="btnExport_PDF" runat="server" Text="Kết Xuất PDF" Theme="Office2010Blue">
+                    </dx:ASPxButton>
+                </td>
+                <td width="130px" align="right">
+                    <dx:ASPxButton ID="btnExport_CSV" runat="server" Text="Kết Xuất CSV" Theme="Office2010Blue">
+                    </dx:ASPxButton>
+                </td>
+                <td width="130px" align="right">
+                    <dx:ASPxButton ID="btnExport_XLS" runat="server" Text="Kết Xuất XLS" Theme="Office2010Blue">
+                    </dx:ASPxButton>
+                </td>
+                <td width="150px" align="right">
+                    <dx:ASPxButton ID="btnExport_XLSX" runat="server" Text="Kết Xuất XLSX" Theme="Office2010Blue" Width="120px">
+                    </dx:ASPxButton>
+                </td>
+            </tr>
+        </table>
+        <dx:ASPxGridViewExporter ID="gridExport" runat="server" GridViewID="grdData"></dx:ASPxGridViewExporter>
+
+        <asp:SqlDataSource ID="sqlData" runat="server"
+            ConnectionString="<%$ appSettings:TKS_Thuc_Tap_Admin_Conn_String %>" 
+            DeleteCommand="sp_del_Thanh_Vien" DeleteCommandType="StoredProcedure" 
+            InsertCommand="F1002_sp_ins_Thanh_Vien" InsertCommandType="StoredProcedure" 
+            SelectCommand="sp_sel_List_Thanh_Vien" SelectCommandType="StoredProcedure" 
+            UpdateCommand="F1002_sp_upd_Thanh_Vien" UpdateCommandType="StoredProcedure">
+            <DeleteParameters>
+                <asp:Parameter Name="Auto_ID" Type="Int32" />
+                <asp:SessionParameter Name="Last_Updated_By" SessionField="Active_User_Name" 
+                    Type="String" />
+            </DeleteParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Auto_ID"/>
+                <asp:Parameter Name="Ma_Dang_Nhap"/>
+                <asp:Parameter Name="Ten"/>
+                <asp:Parameter Name="Ho_Lot"/>
+                <asp:Parameter Name="Dien_Thoai"/>
+                <asp:Parameter Name="Email"/>
+                <asp:Parameter Name="Icon_Index"/>
+                <asp:Parameter Name="Is_Updated_Password"/>
+                <asp:Parameter Name="Password"/>
+                <asp:Parameter Name="Default_URL" />
+                <asp:SessionParameter Name="Last_Updated_By" SessionField="Active_User_Name" 
+                    />
+            </UpdateParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Ma_Dang_Nhap"/>
+                <asp:Parameter Name="Ten" />
+                <asp:Parameter Name="Ho_Lot"/>
+                <asp:Parameter Name="Dien_Thoai"/>
+                <asp:Parameter Name="Email"/>
+                <asp:Parameter Name="Icon_Index"/>
+                <asp:Parameter Name="Is_Updated_Password"/>
+                <asp:Parameter Name="Password"/>
+                <asp:Parameter Name="Default_URL" />
+                <asp:SessionParameter Name="Last_Updated_By" SessionField="Active_User_Name"/>
+            </InsertParameters>
+        </asp:SqlDataSource>
+    </div>
+</div>
+
